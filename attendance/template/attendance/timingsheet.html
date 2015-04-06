@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>.</title>
+		<meta name="description" content="">
+		<meta name="author" content="GS-sw1">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		 <link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" type="text/css" href="../static/css/jquery-ui.css" />
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css/">
+		
+    	<script src="../static/js/jquery-1.9.1.js"></script>
+	    <script src="../static/js/jquery-ui.js"></script>
+		
+		<script>
+		$(document).ready(
+  
+  /* This is the function that will get executed after the DOM is fully loaded */
+  function () {
+    $( "#datepicker" ).datepicker({
+    	dateFormat: "dd/mm/yy",
+      changeDate:true,	
+      changeMonth: true,//this option for allowing user to select month
+      changeYear: true //this option for allowing user to select from year range
+    });
+  }
+
+);
+      function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+         }
+    </script>
+	</head>
+
+	<body>
+		
+		<div id="printableArea">
+			<div class="textalign">
+			<p class="fl">Timing Sheet</p>
+				
+				<p class="fr">Date:<input type="text" id="datepicker" value="{{requestdate|date:'d/m/y'}}" class="date_picker"></p>
+			</div>
+			<div class="clear_both"> </div>
+			
+			<div class="tablestructure">
+				<table border="1" class="details fl" cellpadding="1">
+					<tr>
+						<th class="column1">Sl.No.</th>
+						<th class="column2">Name</th>
+						<th class="column3">In time</th>
+						<th class="column4">Out time</th>
+						<th class="breakspan" rowspan="{{count}}">
+							<div class="lunchbreak">
+								<span>LUNCH <p>BREAK</p></span>
+							</div>
+						</th>
+						<th class="column5">In time</th>
+						<th class="column6">Out time</th>
+						<th class="column7">Signature</th>
+					</tr>
+					{% for timingsheetfull in timingsheet %}
+					<tr>
+
+						<td class="column1">{{forloop.counter}}</td>
+						<td class="column2">{{timingsheetfull.empname}}</td>
+						<td class="column3"></td>
+						<td class="column4"></td>
+						
+						<td class="column5"></td>
+						<td class="column6"></td>
+						<td class="column7"></td>
+					</tr>
+					{% endfor %}
+				</table>
+				
+		</div>
+		
+		</div>
+		
+		<div class="back">
+			<a href="/home/"></a>
+		</div>
+		
+	</body>
+</html>

@@ -1,0 +1,122 @@
+
+body{
+	margin:0px auto;
+	width:900px;
+	
+}
+.logo{
+	
+}
+.title{
+	margin-top:20px;
+}
+.title a{
+	font-size:21px;
+	font-family:Times;
+	text-decoration:none;
+	margin: 0px 13px 0px 29px;
+	
+	width:150px;
+	height:80px;
+	background:pink;
+	border: 1px solid;
+	
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.clear_both{
+	clear:both;
+}
+.textalign p{
+	font-size:25px;
+	font-family:Times;
+	font-weight:bold;
+}
+.tablestructure table
+{
+	float:left;
+	margin:0px 0px 15px 0px;
+}
+
+.details{
+	width:900px;
+}
+.breakspan{
+	width:50px;
+}
+.lunchbreak{
+	word-wrap: break-word;
+	width: 27px;
+	text-align:center;
+	margin:0px 0px 0px 12px;
+	font-size: 22px;
+}
+.column1{
+	width:90px;
+	
+}
+.column2{
+	width:280px;
+	
+}
+.column3{
+	width:90px;
+}
+.column4{
+	width:90px;
+}
+.column5{
+	width:90px;
+}
+.column6{
+	width:90px;
+}
+.column7{
+	width:170px;
+}
+.tablestructure th,.tablestructure td{
+	font-size:26px;
+	font-family:times;
+	
+}
+
+.date_picker{
+	font-size:25px;
+	font-family: times;
+	font-weight: bold;
+	border:none;
+	width:118px;
+}
+
+.back{
+	
+	text-align:right;
+}
+/*geetha*/
+
+header h1 {
+	
+	text-align: center;
+	font-size: 30px;
+	
+}
+
+.attendance{
+	
+	height: 100px;
+	width: 900px;
+}
+
+.col{
+	width:50px;
+}
+
+.col_empname{
+	width:600px;
+}
+
+

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>.</title>
+		<meta name="description" content="">
+		<meta name="author" content="user">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<link rel="stylesheet" type="text/css" href="../static/css/style.css/">
+		<!-- <script>
+          function myFunction() {
+          window.print();
+              }
+      </script> -->
+      
+      <script>
+      function printDiv(divName) {
+     var printContents = document.getElementById(divName).innerHTML;
+     var originalContents = document.body.innerHTML;
+
+     document.body.innerHTML = printContents;
+
+     window.print();
+
+     document.body.innerHTML = originalContents;
+         }
+    </script>
+		
+	</head>
+
+	<body>
+		
+		<!-- <button onclick="myFunction()">Print this page</button> -->
+		
+		<input type="button" onclick="printDiv('printableArea')" value="print" />		
+		<div id="printableArea">
+			<header>
+				<h1 >Attendance Sheet</h1>
+				<div>
+				
+				<h2 class=fl>Date:{{requestdate|date:'m/d/Y'}}</h2>
+				<h2 class=fr>Month:{{month}}</h2>
+				<div class="clear_both"> </div><!--clear_both-->
+				</div>
+				
+			</header>
+			
+
+                  <table border="1" cellpadding="6" class="attendance">
+	
+	                  <tr>
+	                  	
+	                  	
+	                  	<th class=col> Emp.Id   </th>
+	                  	<th class=col_empname> Employee Name</th>
+	                  	<th class=col> No.Of Working Days </th>
+	                  	<th class=col> No.Of Leave days   </th>
+	                  	<th class=col> No.Of Permissions  </th>
+	                  	<th class=col> Total Days Present </th>
+	              	
+	                  	
+	                  </tr>
+	                  
+	                  	{% for attendancesheet_info in attendance_sheet %}
+	                  	<tr>
+	                  	
+	                  	<td>{{ attendancesheet_info.empid}}</td>
+	                  	<td>{{ attendancesheet_info.empname}}</td>
+	                  	<td>{{ attendancesheet_info.working_days}}</td>
+	                  	<td>{{ attendancesheet_info.leave_days}}</td>
+	                  	<td>{{ attendancesheet_info.permissions}}</td>
+	                  	<td>{{ attendancesheet_info.present_days}}</td>
+	                  	</tr>
+	                  	 {% endfor %}
+	                  	
+	               
+	
+                   </table>
+
+
+		
+			
+			
+		</div>
+		<div class="back">
+			<a href="/home/">Back To Home</a>
+		</div>
+	</body>
+</html>
