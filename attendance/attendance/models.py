@@ -9,21 +9,21 @@ import datetime
 
 class EmployeeDetails(models.Model):
     
-    empid=models.CharField(max_length=4, unique=True)
+    empid=models.CharField(max_length=20, unique=True)
     name=models.CharField(max_length=20)
-    department=models.CharField(max_length=20)
+    department=models.CharField(max_length=20,blank=True)
     address=models.CharField(max_length=100)
     phoneno=models.CharField(max_length=12)
-    accountno=models.CharField(max_length=20)
+    accountno=models.CharField(max_length=20,blank=True)
     created =models.DateTimeField(default=datetime.datetime.now)
-    modified=models.DateTimeField()
+    modified=models.DateTimeField(blank=True)
     
     def __unicode__(self):
         return self.name
       
 class TimingSheet(models.Model):
     ref_id=models.ForeignKey(EmployeeDetails, default=0, null=False)
-    empid=models.CharField(max_length=4, unique=True)
+    empid=models.CharField(max_length=20, unique=True)
     empname=models.CharField(max_length=20)
     
     def __unicode__(self):
